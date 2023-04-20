@@ -2,6 +2,7 @@ package pages;
 
 import annotations.Path;
 import exceptions.PathEmptyException;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
 public abstract class AbsBasePage<T> {
@@ -26,6 +27,7 @@ public abstract class AbsBasePage<T> {
     throw new PathEmptyException();
   }
 
+  @Step("Открытие главной страницы")
   public T open() throws PathEmptyException {
     String url = baseUrl + getPath();
     driver.get(url);

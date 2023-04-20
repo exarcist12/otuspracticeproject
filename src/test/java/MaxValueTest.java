@@ -7,6 +7,7 @@ import exceptions.PathEmptyException;
 import extensions.UIExtension;
 import listeners.MouseListener;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
@@ -43,7 +44,8 @@ public class MaxValueTest {
       capabilities
     );
   }
-  //@Test
+  @Test
+  @DisplayName("Выбор курса с максимальной датой")
   public void maxValueTest() throws PathEmptyException, ParseException {
     MainPage mainPage = new MainPage(driver);
     mainPage.open();

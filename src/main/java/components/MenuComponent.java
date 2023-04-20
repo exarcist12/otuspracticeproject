@@ -6,6 +6,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import data.CategoryData;
 import data.Course;
 import data.CoursesData;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -81,6 +82,7 @@ public class MenuComponent extends AbsBaseComponent<MenuComponent> {
     return newList;
   }
 
+  @Step("Фильтрация среди курсов по выбранному наименованию")
   public CoursesData filterCourseName(String name) {
 
     List<String> courseString =  getCoursesStringFromMainPage();
@@ -90,7 +92,7 @@ public class MenuComponent extends AbsBaseComponent<MenuComponent> {
     return coursesData2.get(0);
   }
 
-
+  @Step("Клик по нужному курсу")
   public CoursePage clickCourse(CoursesData coursesData) {
 
     String selector = String.format(menuCourseSelectorTemplate, coursesData.getName());
@@ -104,6 +106,7 @@ public class MenuComponent extends AbsBaseComponent<MenuComponent> {
     return new CoursePage(driver);
   }
 
+  @Step("Проверка совпадения титульника открытой страницы с названием курса")
   public CoursesComponent checkTitlePage(CoursePage coursePage, CoursesData coursesData) {
 
 
