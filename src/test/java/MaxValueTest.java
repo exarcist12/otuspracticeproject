@@ -30,20 +30,7 @@ public class MaxValueTest {
 
   @Driver
   private WebDriver driver;
-  @BeforeEach
-  void setupTest() throws MalformedURLException {
-    Map<String, Object> selenoidOptions = new HashMap<>();
-    selenoidOptions.put("enableVNC", true);
-    selenoidOptions.put("enableVideo", true);
-    DesiredCapabilities capabilities = new DesiredCapabilities();
-    capabilities.setCapability("browserName", "chrome");
-    capabilities.setCapability("browserVersion", "109.0");
-    capabilities.setCapability("selenoid:options", selenoidOptions);
-    driver = new RemoteWebDriver(
-      URI.create("http://127.0.0.1:8080/wd/hub").toURL(),
-      capabilities
-    );
-  }
+
   @Test
   @DisplayName("Выбор курса с максимальной датой")
   public void maxValueTest() throws PathEmptyException, ParseException {
