@@ -124,6 +124,8 @@ public class MenuComponent extends AbsBaseComponent<MenuComponent> {
     return new MainPage(driver);
   }
 
+
+  @Step("Составление всех курсов с датами")
   public ArrayList<Course> coursesWithDate() throws ParseException {
     List<WebElement> elementsCourse = driver.findElements(By.cssSelector(courseTemplate));
     ArrayList<Course> coursesWithDate = new ArrayList<>();
@@ -157,6 +159,7 @@ public class MenuComponent extends AbsBaseComponent<MenuComponent> {
   }
 
 
+  @Step("Поиск курса с максимальной/минимальной датой")
   public Course function(List<Course> courses, BinaryOperator<LocalDate> accumulator){
 
     List<LocalDate> dates = courses.stream().map(p1 -> p1.getDate()).collect(Collectors.toList());
